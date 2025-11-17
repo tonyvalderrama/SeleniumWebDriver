@@ -10,29 +10,32 @@ The goal is to practice using the **Page Object Model (POM)** and to automate **
 -   **Build Tool:** Maven
 
 ## Requirements
-- Use **WebDriver API** as much as possible  (browser navigation, clicks, switchTo and etc.)
+- Use **WebDriver API** as much as possible  (browser navigation, clicks, switchTo, etc.)
 - Use several **locator strategies**, i.e. different types of locators (and select the most suitable in your case)
 - Experiment with **waits** (implicit and explicit)
 - Extend your scenario with usage of **Page Object** / **Page Factory** patterns.
 
 ## Test Scenarios
-### Scenario 1: Successful Login (Form Authentication)
-#### Test Steps
-1. Open Browser (Chrome) 
-2. Navigate to the homepage.
-3. Click the link **“Form Authentication”**}
-4. Wait for the Login page to load.
-5. Enter username: `tomsmith`.
-6. Enter password: `SuperSecretPassword!`
-7. Click the **Login** button.
-8.  Wait for the Secure Area page to load.
-9.  Verify that the success message “You logged into a secure area!” appears.
-10.  Click the **Logout** button.
-11.  Verify the user is returned to the Login page.
+### Scenario 1: Successful and unsuccessful Login (Form Authentication)
+#### Tests
+1. Both tests:
+   - Open the browser (Chrome)
+   - Navigate to the homepage.
+   - Click the link **“Form Authentication”**
+   - Wait for the Login page to load.
+2. On the Successful Login:
+   - Enter username: `tomsmith`.
+   - Enter password: `SuperSecretPassword!`
+   - Click the **Login** button.
+   - See if the Secure Area page is loaded.
+3. On the unsuccessful Login test:
+    - Enter username: `johndoe`.
+    - Enter password: `SomeOtherPassword!`
+    - Click the **Login** button.
+    - Verify that the Secure Area page couldn't load.
 
-#### Expected Result
--   User successfully logs in and sees a confirmation message.
--   After logout, the login page is displayed again.
+#### Notes
+- Test Class: **LoginTest**
 ---
 ### Scenario 2: Add and Remove Elements
 #### Test Steps
@@ -45,9 +48,9 @@ The goal is to practice using the **Page Object Model (POM)** and to automate **
 7.  Verify only one **Delete** button remains.
 8.  Click the remaining **Delete** button.
 9.  Verify that no **Delete** buttons are visible.
- 
-#### Expected Result
--   Elements are added and removed correctly from the page.
+
+#### Notes
+- Test Class: **AddRemoveElementsTest**
 ---
 ### Scenario 3: Checkboxes Interaction
 #### Test Steps
@@ -62,7 +65,18 @@ The goal is to practice using the **Page Object Model (POM)** and to automate **
 9.  Confirm Checkbox 2 is **unchecked**.
 10.  Click Checkbox 2 again to check it back.
 
-#### Expected Result
--   Both checkboxes toggle state correctly.
+#### Notes
+- Test Class: **CheckboxTest**
 ---
+### Scenario 4: Multiple Windows
+#### Test Steps
+1. Open browser and navigate to the homepage.
+2. Click the **Multiple Windows** link to go to that test page.
+3. On the Multiple Windows page click **Click Here**.
+4. Wait for the new window to appear and switch the WebDriver to it.
+5. Verify the new window's heading is New Window.
+6. Switch back to the original window.
+7. Verify we returned to the original page (by checking URL).
 
+#### Notes
+- Test Class: **MultipleWindowsTest**
