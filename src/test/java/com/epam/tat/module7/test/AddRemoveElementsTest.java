@@ -1,12 +1,13 @@
-package tests;
+package com.epam.tat.module7.test;
 
-import PageClasses.AddRemoveElementsPage;
+import com.epam.tat.module7.PageObjects.AddRemoveElementsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddRemoveElementsTest extends BaseTest{
 
-    @Test(description = "Test: adding and removing elements")
+    @Test(description = "Test: adding and removing elements",
+            groups = {"regression","all"})
     public void testAddRemoveElements() {
         AddRemoveElementsPage addRemoveElementsPage =
                 mainPage.clickAddRemoveElementsPage();

@@ -1,5 +1,6 @@
-package PageClasses;
+package com.epam.tat.module7.PageObjects;
 
+import com.epam.tat.module7.config.ConfigURLs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,17 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage extends BasePage {
 
-    private final String URL = "https://the-internet.herokuapp.com/";
-
     @FindBy(linkText = "Form Authentication")
     private WebElement linkFormAuthentication;
-
     @FindBy(linkText = "Add/Remove Elements")
     private WebElement linkAddRemoveElements;
-
     @FindBy(linkText = "Multiple Windows")
     private WebElement linkMultipleWindows;
-
     @FindBy(linkText = "Checkboxes")
     private WebElement linkCheckboxes;
 
@@ -28,7 +24,7 @@ public class MainPage extends BasePage {
 
     @Override
     public BasePage openPage() {
-        driver.get(URL);
+        driver.get(ConfigURLs.MAIN_PAGE);
         waitUntilPageIsLoaded(linkFormAuthentication);
         return this;
     }

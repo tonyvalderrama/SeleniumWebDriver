@@ -1,12 +1,13 @@
-package tests;
+package com.epam.tat.module7.test;
 
-import PageClasses.CheckboxesPage;
+import com.epam.tat.module7.PageObjects.CheckboxesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CheckboxTest extends BaseTest {
 
-    @Test
+    @Test (description = "Testing the Checkbox page",
+            groups = {"smoke", "regression","all"})
     public void checkboxTest() {
         CheckboxesPage checkboxesPage = mainPage.clickCheckboxes();
 

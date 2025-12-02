@@ -1,4 +1,4 @@
-package PageClasses;
+package com.epam.tat.module7.PageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

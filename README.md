@@ -15,6 +15,16 @@ The goal is to practice using the **Page Object Model (POM)** and to automate **
 - Experiment with **waits** (implicit and explicit)
 - Extend your scenario with usage of **Page Object** / **Page Factory** patterns.
 
+## Improvements
+- Renamed PageClasses folder to PageObjects for a more consistent namestyle
+- Created a more consistent package naming: `com.epam.tat.module7`
+- Centralized the baseURLs (in `config/ConfigURLs,java`)
+- Added TextNG config files
+  - Added smoke, regression and all test groups
+  - Added appropriate xml files in the `resources` folder
+- Added the Maven commands to run tests at the end of this file
+- Modified LoginTest to use a DataProvider instead of hardcoding values
+
 ## Test Scenarios
 ### Scenario 1: Successful and unsuccessful Login (Form Authentication)
 #### Tests
@@ -80,3 +90,10 @@ The goal is to practice using the **Page Object Model (POM)** and to automate **
 
 #### Notes
 - Test Class: **MultipleWindowsTest**
+
+## Maven Commands
+**Test suites** (example: regression tests in `regression.xml`)
+`mvn clean test "-DsuiteXmlFile=/src/test/resources/regression.xml"`
+
+**Test a class**, a test scenario (example MultipleWindowsTest class)
+`mvn clean test "-Dtest=com.epam.tat.module7.test.MultipleWindowsTest"`

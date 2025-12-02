@@ -1,5 +1,6 @@
-package PageClasses;
+package com.epam.tat.module7.PageObjects;
 
+import com.epam.tat.module7.config.ConfigURLs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,11 +11,8 @@ import java.util.List;
 
 public class AddRemoveElementsPage extends BasePage{
 
-    private final String URL = "https://the-internet.herokuapp.com/add_remove_elements/";
-
     @FindBy(xpath = "//button[text()='Add Element']")
     private WebElement addElementButton;
-
     By byDeleteButtons = By.xpath("//button[@class='added-manually']");
 
     public AddRemoveElementsPage(WebDriver driver) {
@@ -24,7 +22,7 @@ public class AddRemoveElementsPage extends BasePage{
 
     @Override
     public BasePage openPage() {
-        driver.get(URL);
+        driver.get(ConfigURLs.ADDREMOVE_PAGE);
         waitUntilPageIsLoaded(addElementButton);
         return null;
     }

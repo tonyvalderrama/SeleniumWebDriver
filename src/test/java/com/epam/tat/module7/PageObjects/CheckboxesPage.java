@@ -1,16 +1,16 @@
-package PageClasses;
+package com.epam.tat.module7.PageObjects;
 
+import com.epam.tat.module7.config.ConfigURLs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CheckboxesPage extends BasePage {
-    private final String PAGE_URL = "https://the-internet.herokuapp.com/checkboxes";
+
 
     @FindBy(xpath = "//form[@id='checkboxes']/input[following-sibling::text()[contains(., 'checkbox 1')]]")
     private WebElement checkbox1;
-
     @FindBy(xpath = "//form[@id='checkboxes']/input[following-sibling::text()[contains(., 'checkbox 2')]]")
     private WebElement checkbox2;
 
@@ -21,7 +21,7 @@ public class CheckboxesPage extends BasePage {
 
     @Override
     public BasePage openPage() {
-        driver.get(PAGE_URL);
+        driver.get(ConfigURLs.CHECKBOX_PAGE);
         waitUntilPageIsLoaded(checkbox1);
         return this;
     }

@@ -1,16 +1,16 @@
-package tests;
+package com.epam.tat.module7.test;
 
-import PageClasses.MultipleWindowsPage;
-import PageClasses.NewWindowPage;
+import com.epam.tat.module7.PageObjects.MultipleWindowsPage;
+import com.epam.tat.module7.PageObjects.NewWindowPage;
+import com.epam.tat.module7.config.ConfigURLs;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class MultipleWindowsTest extends BaseTest {
 
-    @Test(description = "Opening multiple windows/tabs test")
+    @Test(description = "Opening multiple windows/tabs test",
+        groups = {"smoke","regression","all"})
     public void changingBetweenWindowsTest() {
-        final String PAGE_URL = "https://the-internet.herokuapp.com/windows";
-
         MultipleWindowsPage multipleWindowsPage = mainPage.clickMultipleWindows();
         NewWindowPage newWindowPage = multipleWindowsPage.openNewWindow();
 
@@ -22,7 +22,7 @@ public class MultipleWindowsTest extends BaseTest {
 
         multipleWindowsPage.switchBackToOriginalWindow();
         Assert.assertEquals(driver.getCurrentUrl(),
-                PAGE_URL,
+                ConfigURLs.MULTIPLEWINDOWS_URL,
                 "Expect to be back on multiple windows page");
     }
 }

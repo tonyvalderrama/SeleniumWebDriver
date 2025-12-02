@@ -1,5 +1,6 @@
-package PageClasses;
+package com.epam.tat.module7.PageObjects;
 
+import com.epam.tat.module7.config.ConfigURLs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,6 @@ import java.time.Duration;
 import java.util.Set;
 
 public class MultipleWindowsPage extends BasePage {
-    private final String URL = "https://the-internet.herokuapp.com/windows";
     private String originalHandle;
 
     @FindBy(linkText = "Click Here")
@@ -24,7 +24,7 @@ public class MultipleWindowsPage extends BasePage {
 
     @Override
     protected BasePage openPage() {
-        driver.get(URL);
+        driver.get(ConfigURLs.MULTIPLEWINDOWS_URL);
         waitUntilPageIsLoaded(linkClickHere);
         return this;
     }
