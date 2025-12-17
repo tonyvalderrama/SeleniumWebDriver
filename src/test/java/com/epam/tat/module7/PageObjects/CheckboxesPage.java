@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckboxesPage extends BasePage {
 
-
     @FindBy(xpath = "//form[@id='checkboxes']/input[following-sibling::text()[contains(., 'checkbox 1')]]")
     private WebElement checkbox1;
     @FindBy(xpath = "//form[@id='checkboxes']/input[following-sibling::text()[contains(., 'checkbox 2')]]")
