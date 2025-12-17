@@ -13,6 +13,10 @@ The goal is to practice using the **Page Object Model (POM)** and to automate **
 - Use **WebDriver API** as much as possible  (browser navigation, clicks, switchTo, etc.)
 - Use several **locator strategies**, i.e. different types of locators (and select the most suitable in your case)
 - Experiment with **waits** (implicit and explicit)
+  - In the `BasePage` class (all PageObjects inherit from this class) there is a method, `waitUntilPageIsLoaded` that uses an **explicit** wait for an element to be located.
+  - Since all the tests use this explicit wait and this page doesn't have much delay I created a `CandyMapperPage` class for another page that has a lot of delay
+    - The `ImplicitTest` class implements an **implicit** wait for this site (and fails due to Timeout)
+    - The `FluentTest` class uses a **fluent** wait to test (and succeeds).
 - Extend your scenario with usage of **Page Object** / **Page Factory** patterns.
 
 ## Improvements
